@@ -8,7 +8,7 @@ const protect = asyncHandler(async (req, res, next) => {
   if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
     try{
       //Se obtiene el token
-      token  = req.headers.authorization.split('')[1]
+      token = req.headers.authorization.split(' ')[1]
 
       //se verifica el token
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
@@ -24,9 +24,9 @@ const protect = asyncHandler(async (req, res, next) => {
     }
   }
 
-  if(!token){
+  if (!token) {
     res.status(401)
-    throw new Error('Acceso no autorizado, no se ha proporcionado un token')
+    throw new Error('Acceso no autorizado, no se proporcionó un token')
   }
 })
 
