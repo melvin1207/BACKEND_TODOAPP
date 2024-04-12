@@ -6,11 +6,11 @@ const taskSchema = mongoose.Schema({
     required: true,
     ref: 'User'
   },
-  descripcion: {
+  description: {
     type: String,
     required: [true, 'Por favor ingrese una descripcion']
   },
-  catgory:{
+  category:{
     type :String,
     required: [true, 'Ingrese la categoria de la tarea']
   }

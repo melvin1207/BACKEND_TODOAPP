@@ -16,13 +16,13 @@ const createTask = asyncHandler(async (req, res) => {
     user: req.user.id
   })
 
-  res.status(201).json(tarea)
+  res.status(201).json(task)
 })
 
 //obtener las tareas
 const getTasks = asyncHandler(async (req, res) => {
   const tasks = await Task.find({ user:req.user.id })
-  res.status(200).json(tareas)
+  res.status(200).json(tasks)
 })
 
 //actualizar una tarea
