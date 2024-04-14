@@ -10,9 +10,10 @@ const taskSchema = mongoose.Schema({
     type: String,
     required: [true, 'Por favor ingrese una descripcion']
   },
-  category:{
-    type :String,
-    required: [true, 'Ingrese la categoria de la tarea']
+  list:{
+    type: Number,
+    required: [true, 'Ingrese la categoria de la tarea'],
+    default: 1
   }
 }, {
   timestamps: true

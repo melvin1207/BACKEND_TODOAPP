@@ -3,16 +3,13 @@ const Task = require('../models/tasksModels')
 
 //crear una tarea
 const createTask = asyncHandler(async (req, res) => {
-  const { description, category } = req.body
-
-  if(!description || !category){
+  if(!req.body.description){
     res.status(400)
     throw new Error("Faltan datos")
   }
 
   const task = await Task.create({
-    description: description,
-    category: category,
+    description: req.body.description,
     user: req.user.id
   })
 
